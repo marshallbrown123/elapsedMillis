@@ -52,6 +52,7 @@ public:
 	elapsedMicros operator + (unsigned int val) const  { elapsedMicros r(*this); r.us -= val; return r; }
 	elapsedMicros operator + (long val) const          { elapsedMicros r(*this); r.us -= val; return r; }
 	elapsedMicros operator + (unsigned long val) const { elapsedMicros r(*this); r.us -= val; return r; }
+	elapsedMillis Remaining (void) const { return micros() - us; }
 };
 
 class elapsedMillis
@@ -99,6 +100,7 @@ public:
 	elapsedSeconds operator + (unsigned int val) const  { elapsedSeconds r(*this); r.s -= val; return r; }
 	elapsedSeconds operator + (long val) const          { elapsedSeconds r(*this); r.s -= val; return r; }
 	elapsedSeconds operator + (unsigned long val) const { elapsedSeconds r(*this); r.s -= val; return r; }
+	elapsedMillis Remaining (void) const { return millis()/1000 - s; }
 };
 
 #endif // __cplusplus
